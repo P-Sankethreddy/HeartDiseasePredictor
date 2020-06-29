@@ -1,0 +1,186 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+input{
+margin-right: 5%;
+padding-right: 5%;
+}
+html{
+
+    scroll-behavior: smooth;
+}
+
+    </style>
+    
+        <title>CardioTech</title>
+</head>
+
+<body style="background-color: #fccc85;">
+
+
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col">
+                <h1 style="text-align: center;">Heart Disease Predictor</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-5" style="margin-bottom: 15%;">
+        <div class="row">
+
+            <div class="col-lg-6 col-md-12 col-sm-12">
+
+                <h1 class="pb-2 pt-5">
+                    Got Heart Test Report ?
+                </h1>
+                <h1 class="pb-2">But Waiting For Doctor Appointment?</h1>
+                <h4 class="pb-2">
+                    Check Out Yourself Here and Get Clarity
+                </h4>
+
+                <a href="#formId"><button class="mt-5 ">Click Here</button></a>
+                
+                    <div class="row pt-5">
+                        <div class="col-lg-12">
+                    <h2 style="color:green;">{{prediction_text}}</h2>
+                </div>
+                </div>
+                
+
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div>
+
+                    <img src="{{url_for('static', filename='tenor.gif')}}" style=" height:350px; width:750px; " />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid" id="formId">
+
+        <form action="{{url_for('predict')}}" method="POST">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="text-align: center;">Fill the below fields:</h1>
+                </div>
+            </div>
+
+            <div class="pl-2 ml-2 py-5">
+                <input type="text" placeholder="age" name="age" required />
+                <input type="text" placeholder="trestbps" name="trestbps" required />
+                <input type="text" placeholder="chol" name="chol" required />
+                <input type="text" placeholder="thalach" name="thalach" required />
+                <br>
+            </div>
+
+            <input type="text" placeholder="oldpeak" name="oldpeak" required class="ml-3" />
+            <input type="text" placeholder="thal" name="thal" required />
+
+
+            <select name="sex" placeholder=" choose gender" style="padding-left: 5%;width:18%;height:1.9rem;">
+                <option value="">Choose Gender</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+
+
+            <select name="cp" required style="margin-left: 5.5%;width:18%">
+                <option value="">Choose CP level</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+<br>
+
+
+
+
+<div class="pt-5">
+            <select name="fbs" required class="ml-3" style="width:18.5%;height:1.9rem;">
+                <option value="">choose  FBS  Level</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+
+
+
+            <select name="restecg"  style="margin-left: 5%;width:19.5%;height: 1.9rem;" required>
+                <option value="">Choose CP Level</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+
+            </select>
+
+
+
+            <select name="exang" style="margin-left: 4.5%;width:18%;height: 1.9rem;"  required>
+                <option value="">Choose Exang Level</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+
+            <select name="slope" style="margin-left: 5.5%;width:18%;height: 1.9rem;" required>
+                <option value="">Choose Slope</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+
+            </select>
+        </div>
+        <div class="pt-5">
+            <select name="ca" style="margin-left: 1%;width:19%;height: 1.9rem;" required>
+                <option value="">Choose CA Level</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+
+            </select>
+
+
+
+
+
+            <button type="submit" style="margin-left: 5%;width:18%;height: 1.9rem;" >Submit</button>
+            
+           
+        </div>
+
+        </form>
+    </div>
+    <br>
+    <br>
+
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
