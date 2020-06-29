@@ -1,3 +1,3 @@
 web: gunicorn 
 app:app
-heroku ps:scale web=2 worker=4
+ps:scale web=2 worker=4
