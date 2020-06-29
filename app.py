@@ -13,7 +13,7 @@ model=pickle.load(open('model.pkl','rb'))
 
 # dataset[columns_for_scaling]=stdScaler.fit_transform(dataset[columns_for_scaling])
 
-@app.route('/')
+@app.route('/',methods=['GET'])
 def home():
     return render_template('index.html')
 
@@ -28,7 +28,7 @@ def predict():
     features.append(request.form.get('oldpeak'))
     features.append(request.form.get('thal'))
   
-  
+
         
     if request.form.get('sex') is "male":
         features.append(1)
